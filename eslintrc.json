@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest-dom/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["node_modules", "dist"],
+  "plugins": [
+    "react",
+    "prettier",
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks",
+    "jest-dom"
+  ],
+  "rules": {}
+}
