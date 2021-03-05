@@ -12,12 +12,13 @@ import VaccineHowBox from './VaccineHowBox'
 import VaccineHowContent from './VaccineHowContent'
 
 import MyVaccineStoryBox from './MyVaccineStoryBox'
+import MyVaccineStoryContent from './MyVaccineStoryContent'
 
 const contentComponents = {
   sideEffects: SideEffectsContent,
   vaccinesAdministered: VaccinesAdministeredContent,
   vaccineHow: VaccineHowContent,
-  myVaccineStory: VaccineHowContent,
+  myVaccineStory: MyVaccineStoryContent,
 }
 
 export default function NeedToKnow() {
