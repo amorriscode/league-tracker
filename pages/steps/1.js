@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import withLayout from '../../components/withLayout'
 import Person from '../../public/person.svg'
 import Button from '../../components/Button'
+import FAQ from "../../components/FAQ"
 
 function Step1() {
   const router = useRouter()
@@ -100,6 +101,7 @@ function Step1() {
               </Button>
             </div>
           </div>
+          <FAQ />
         </div>
       </div>
     </main>
