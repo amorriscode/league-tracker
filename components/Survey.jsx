@@ -7,21 +7,24 @@ const questions = [
   {
     id: 1,
     question:
-      'Do you think getting the vaccine wil help us achieve herd immunity?',
+      'Do you think getting the vaccine will help us achieve herd immunity?',
     options: ['Yes', 'Not Sure', 'No'],
-    content: "Surveys taken in North America, Europe, and Middle East have shown that attitudes towards vaccination in 2021 are increasingly more positive than in 2020. "
+    content:
+      'Surveys taken in North America, Europe, and Middle East have shown that attitudes towards vaccination in 2021 are increasingly more positive than in 2020. ',
   },
   {
     id: 2,
     question: 'If offered today, would you feel safe taking the vaccine?',
     options: ['Yes', 'Maybe', 'No'],
-    content: "The percentage of people who need to be immune in order to achieve herd immunity varies with each disease. For example, herd immunity against measles requires about 95% of a population to be vaccinated. ",
+    content:
+      'The percentage of people who need to be immune in order to achieve herd immunity varies with each disease. For example, herd immunity against measles requires about 95% of a population to be vaccinated. ',
   },
   {
     id: 3,
     question: 'Do you trust the vaccine approval process?',
     options: ['Yes', 'Not Sure', 'No'],
-    content: "During vaccine development, vaccines are first tested in animals before being studied in humans. Testing in humans is done over three phases of clinical trials. These trials provide crucial information on vaccine safety as well as effectiveness. ",
+    content:
+      'During vaccine development, vaccines are first tested in animals before being studied in humans. Testing in humans is done over three phases of clinical trials. These trials provide crucial information on vaccine safety as well as effectiveness. ',
   },
 ]
 
@@ -138,11 +141,16 @@ export default function Survey() {
         <div className="col-span-1 grid grid-cols-2 -mb-6 pt-8 px-8">
           {answers[questions[questionIndex].id] != null ? (
             <div>
-            <div className="font-bold">
-              {results["q"+questionIndex][answers[questions[questionIndex].id]].percentage}% of quiz participants expressed the same feelings.
-            </div>
-            <br></br>
-            <p>{questions[questionIndex].content}</p>
+              <div className="font-bold">
+                {
+                  results['q' + questionIndex][
+                    answers[questions[questionIndex].id]
+                  ].percentage
+                }
+                % of quiz participants expressed the same feelings.
+              </div>
+              <br></br>
+              <p>{questions[questionIndex].content}</p>
             </div>
           ) : (
             <div className="font-bold">
