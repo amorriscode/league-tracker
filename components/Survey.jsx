@@ -46,13 +46,11 @@ export default function Survey() {
               </div>
 
               {questionIndex < 2 && (
-                <div className="flex">
-                  <div
-                    className="text-sm pt-1"
-                    onClick={() => setQuestionIndex(questionIndex + 1)}
-                  >
-                    NEXT QUESTION
-                  </div>
+                <div
+                  className="flex hover:cursor-pointer"
+                  onClick={() => setQuestionIndex(questionIndex + 1)}
+                >
+                  <div className="text-sm pt-1">NEXT QUESTION</div>
                   <img src="/arrow-right.svg" className="pl-3 pt-1 w-6 h-6" />
                 </div>
               )}
