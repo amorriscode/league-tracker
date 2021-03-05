@@ -12,7 +12,7 @@ const questions = [
   },
   {
     id: 2,
-    question: 'If offfered today, would you feel safe taking the vaccine?',
+    question: 'If offered today, would you feel safe taking the vaccine?',
     options: ['Yes', 'Maybe', 'No'],
   },
   {
