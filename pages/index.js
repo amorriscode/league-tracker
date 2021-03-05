@@ -4,7 +4,7 @@ import Survey from '../components/Survey'
 
 function Home() {
   return (
-    <main>
+    <main className="space-y-8">
       <Survey />
       <NeedToKnow />
     </main>
