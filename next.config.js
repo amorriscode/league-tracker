@@ -5,4 +5,13 @@ const withTM = require('next-transpile-modules')([
   '@amcharts/amcharts4-geodata/canadaLow',
 ])
 
-module.exports = withTM()
+module.exports = withTM({
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+
+    return config
+  },
+})
