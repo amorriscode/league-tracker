@@ -12,7 +12,7 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent">
+          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
             LEARN MORE
           </div>
         </div>
@@ -26,7 +26,7 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent">
+          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
             LEARN MORE
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent">
+          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
             LEARN MORE
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent">
+          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
             LEARN MORE
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent">
+          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
             LEARN MORE
           </div>
         </div>
