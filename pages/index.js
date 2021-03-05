@@ -1,8 +1,9 @@
 import Head from 'next/head'
 
+import withLayout from '../components/withLayout'
 import QuizOption from '../components/QuizOption'
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <Head>
@@ -20,3 +21,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default withLayout(Home)
