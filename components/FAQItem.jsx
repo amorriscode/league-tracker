@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Collapse } from "react-collapse";
 
 export default function FAQItem(props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(props.first ? true : false);
 
   return (
     <div>
