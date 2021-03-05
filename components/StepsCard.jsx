@@ -1,6 +1,7 @@
 import Section from './Section'
+import Link from 'next/link'
 
-export default function stepsCaard() {
+export default function StepsCard() {
   return (
     <Section title="Steps to take the Vaccine">
       <div className="grid grid-cols-5 gap-8">
@@ -40,9 +41,11 @@ export default function stepsCaard() {
             </div>
           </div>
 
-          <div className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
-            LEARN MORE
-          </div>
+          <Link href="/steps/3">
+            <a className="mx-3 my-2 p-4 text-brand-blurple font-bold border-4 border-brand-blurple rounded bg-transparent hover:bg-brand-blurple hover:text-white hover:cursor-pointer">
+              LEARN MORE
+            </a>
+          </Link>
         </div>
 
         <div className="relative rounded-lg bg-brand-blurple-light flex flex-col justify-between">
