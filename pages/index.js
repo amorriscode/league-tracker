@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import withLayout from '../components/withLayout'
+import MapCanadaVaccines from '../components/MapCanadaVaccines'
 import QuizOption from '../components/QuizOption'
 
 function Home() {
@@ -17,6 +18,8 @@ function Home() {
             <QuizOption key={i} option={i} />
           ))}
         </div>
+
+        <MapCanadaVaccines />
       </main>
     </div>
   )
