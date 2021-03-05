@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import * as am4core from '@amcharts/amcharts4/core'
 import * as am4maps from '@amcharts/amcharts4/maps'
 import am4themes_animated from '@amcharts/amcharts4/themes/animated'
@@ -6,8 +6,41 @@ import am4geodata_canadaLow from '@amcharts/amcharts4-geodata/canadaLow'
 
 am4core.useTheme(am4themes_animated)
 
+const provinceNameToCode = {
+  Nunavut: 'NU',
+  'Northwest Territories': 'NT',
+  Yukon: 'YT',
+  'British Columbia': 'BC',
+  Alberta: 'AB',
+  Saskatchewan: 'SK',
+  Manitoba: 'MB',
+  Ontario: 'ON',
+  Quebec: 'QC',
+  'Newfoundland and Labrador': 'NL',
+  'New Brunswick': 'NB',
+  'Nova Scotia': 'NS',
+  'Prince Edward Island': 'PE',
+}
+
+const provinceCodetoName = {
+  NU: 'Nunvaut',
+  NT: 'Northwest Territories',
+  YT: 'Yukon',
+  BC: 'British Columbia',
+  AB: 'Alberta',
+  SK: 'Saskatchewan',
+  MB: 'Manitoba',
+  ON: 'Ontario',
+  QC: 'Qubec',
+  NL: 'Newfoundland and Labrador',
+  NB: 'New Brunswick',
+  NS: 'Nova Scotia',
+  PE: 'Prince Edward Island',
+}
+
 export default function MapCanadaVaccines() {
   const chartElement = useRef(null)
+  const [hoverProvince, setHoverProvince] = useState('')
 
   useEffect(() => {
     const chart = am4core.create('map-canada-vaccines', am4maps.MapChart)
@@ -17,6 +50,12 @@ export default function MapCanadaVaccines() {
     chart.geodata = am4geodata_canadaLow
 
     chart.projection = new am4maps.projections.Mercator()
+
+    chart.homeZoomLevel = 2
+    chart.homeGeoPoint = {
+      latitude: 60,
+      longitude: -96.8279,
+    }
 
     // Create map polygon series
     const polygonSeries = chart.series.push(new am4maps.MapPolygonSeries())
@@ -122,6 +161,11 @@ export default function MapCanadaVaccines() {
 
     chart.events.on('ready', setupData)
 
+    polygonSeries.tooltip.label.adapter.add('textOutput', (text, target) => {
+      setHoverProvince(provinceNameToCode[text])
+      return text
+    })
+
     chartElement.current = chart
 
     return () => {
@@ -130,10 +174,50 @@ export default function MapCanadaVaccines() {
   }, [])
 
   return (
-    <div
-      id="map-canada-vaccines"
-      className="w-full"
-      style={{ height: '500px' }}
-    ></div>
+    <div className="grid grid-cols-3 w-full">
+      <div
+        id="map-canada-vaccines"
+        className="col-span-2"
+        style={{ height: '600px' }}
+      ></div>
+
+      <div className="space-y-8">
+        <h2 className="font-bold text-2xl mb-4">
+          Cumulative Number of Doses Administered
+        </h2>
+
+        <div>
+          <h3 className="font-bold">
+            Total Doses Administered in {provinceCodetoName[hoverProvince]}:
+          </h3>
+          <p>300</p>
+        </div>
+
+        <div>
+          <h3 className="font-bold">Total Doses Administered in Canada:</h3>
+          <p>300</p>
+        </div>
+
+        <div>
+          <h3 className="font-bold">Total Doses Administered Worldwide:</h3>
+          <p>300</p>
+        </div>
+
+        <div>
+          <h3 className="font-bold">Vaccine Type/Name Distribution:</h3>
+          <p>300</p>
+        </div>
+
+        <div>
+          <h3 className="font-bold">Phasing Strategy:</h3>
+          <p>300</p>
+        </div>
+
+        <div>
+          <h3 className="font-bold">Last Updated:</h3>
+          <p>300</p>
+        </div>
+      </div>
+    </div>
   )
 }

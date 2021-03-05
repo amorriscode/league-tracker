@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Section from './Section'
 
 import SideEffectsBox from './SideEffectsBox'
+import SideEffectsContent from './SideEffectsContent'
 
 import VaccinesAdministeredBox from './VaccinesAdministeredBox'
 import VaccinesAdministeredContent from './VaccinesAdministeredContent'
@@ -13,7 +14,7 @@ import VaccineHowContent from './VaccineHowContent'
 import MyVaccineStoryBox from './MyVaccineStoryBox'
 
 const contentComponents = {
-  sideEffects: VaccineHowContent,
+  sideEffects: SideEffectsContent,
   vaccinesAdministered: VaccinesAdministeredContent,
   vaccineHow: VaccineHowContent,
   myVaccineStory: VaccineHowContent,
