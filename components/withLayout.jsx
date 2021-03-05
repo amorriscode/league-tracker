@@ -17,7 +17,10 @@ export default function withLayout(PageComponent) {
 
         <nav className="px-8 py-4 border-b-2 border-gray-100">
           <Link href="/">
-            <a>League Tracker</a>
+            <a className="text-4xl">
+              <span className="font-bold text-brand-blurple">Vacc</span>
+              <span className="font-bold text-brand-teal">info</span>
+            </a>
           </Link>
         </nav>
 
