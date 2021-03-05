@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router'
+
 import Button from '../components/Button'
 
 export default function SideEffectsContent() {
+  const router = useRouter()
+
   return (
     <div className="grid grid-cols-2 gap-8">
       <div className="space-y-4">
