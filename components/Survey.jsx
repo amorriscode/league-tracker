@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Section from './Section'
 import QuizOption from './QuizOption'
@@ -9,22 +9,84 @@ const questions = [
     question:
       'Do you think getting the vaccine wil help us achieve herd immunity?',
     options: ['Yes', 'Not Sure', 'No'],
+    content: "Surveys taken in North America, Europe, and Middle East have shown that attitudes towards vaccination in 2021 are increasingly more positive than in 2020. "
   },
   {
     id: 2,
-    question: 'If offfered today, would you feel safe taking the vaccine?',
+    question: 'If offered today, would you feel safe taking the vaccine?',
     options: ['Yes', 'Maybe', 'No'],
+    content: "The percentage of people who need to be immune in order to achieve herd immunity varies with each disease. For example, herd immunity against measles requires about 95% of a population to be vaccinated. ",
   },
   {
     id: 3,
     question: 'Do you trust the vaccine approval process?',
     options: ['Yes', 'Not Sure', 'No'],
+    content: "During vaccine development, vaccines are first tested in animals before being studied in humans. Testing in humans is done over three phases of clinical trials. These trials provide crucial information on vaccine safety as well as effectiveness. ",
   },
 ]
+
+const results = {
+  q0: {
+    0: {
+      numTimesAnswered: 32,
+      percentage: 14,
+    },
+    1: {
+      numTimesAnswered: 60,
+      percentage: 26,
+    },
+    2: {
+      numTimesAnswered: 142,
+      percentage: 61,
+    },
+  },
+  q1: {
+    0: {
+      numTimesAnswered: 8,
+      percentage: 18,
+    },
+    1: {
+      numTimesAnswered: 11,
+      percentage: 25,
+    },
+    2: {
+      numTimesAnswered: 25,
+      percentage: 57,
+    },
+  },
+  q2: {
+    0: {
+      numTimesAnswered: 99,
+      percentage: 64,
+    },
+    1: {
+      numTimesAnswered: 13,
+      percentage: 8,
+    },
+    2: {
+      numTimesAnswered: 43,
+      percentage: 28,
+    },
+  },
+}
 
 export default function Survey() {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState({})
+  // const [results, setResults] = useState({});
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     fetch("https://boiling-stream-68989.herokuapp.com/questions/", {
+  //     }).then((data)=>{return data.json()})
+  //     .then((jsonData)=>{
+  //       setResults(jsonData);
+  //     })
+  //   }, 50);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
 
   return (
     <Section title="Take the Survey!">
@@ -74,10 +136,20 @@ export default function Survey() {
         </div>
 
         <div className="col-span-1 grid grid-cols-2 -mb-6 pt-8 px-8">
-          <div className="font-bold">
-            Answer the question on the left to see how your community has
-            responded to the same question!
-          </div>
+          {answers[questions[questionIndex].id] != null ? (
+            <div>
+            <div className="font-bold">
+              {results["q"+questionIndex][answers[questions[questionIndex].id]].percentage}% of quiz participants expressed the same feelings.
+            </div>
+            <br></br>
+            <p>{questions[questionIndex].content}</p>
+            </div>
+          ) : (
+            <div className="font-bold">
+              Answer the question on the left to see how your community has
+              responded to the same question!
+            </div>
+          )}
 
           <img src="/Icon Man Wave.svg" className="ml-auto"></img>
         </div>
