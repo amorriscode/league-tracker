@@ -18,6 +18,7 @@ module.exports = {
         'brand-red-light': '#F9DEE3',
         'brand-red': '#D92045',
         'brand-red-dark': '#BA1B3B',
+        'button-gray': '#EEEFF0'
       },
     },
   },
