@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function withLayout(PageComponent) {
   const PageComponentWithLayout = ({ ...pageProps }) => {
@@ -15,7 +16,9 @@ export default function withLayout(PageComponent) {
         </Head>
 
         <nav className="px-8 py-4 border-b-2 border-gray-100">
-          <div>League Tracker</div>
+          <Link href="/">
+            <a>League Tracker</a>
+          </Link>
         </nav>
 
         <div className="p-8">

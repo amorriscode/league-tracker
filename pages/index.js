@@ -10,6 +10,8 @@ function Home() {
           <QuizOption key={i} option={i} />
         ))}
       </div>
+
+      <MapCanadaVaccines />
     </main>
   )
 }
