@@ -13,6 +13,7 @@
     "@amcharts/amcharts4-geodata": "^4.1.19",
     "next": "10.0.7",
     "react": "17.0.1",
+    "react-collapse": "^5.1.0",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
