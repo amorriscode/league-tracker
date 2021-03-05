@@ -23,7 +23,7 @@ const provinceNameToCode = {
 }
 
 const provinceCodetoName = {
-  NU: 'Nunvaut',
+  NU: 'Nunavut',
   NT: 'Northwest Territories',
   YT: 'Yukon',
   BC: 'British Columbia',
@@ -31,7 +31,7 @@ const provinceCodetoName = {
   SK: 'Saskatchewan',
   MB: 'Manitoba',
   ON: 'Ontario',
-  QC: 'Qubec',
+  QC: 'Quebec',
   NL: 'Newfoundland and Labrador',
   NB: 'New Brunswick',
   NS: 'Nova Scotia',
@@ -40,7 +40,23 @@ const provinceCodetoName = {
 
 export default function MapCanadaVaccines() {
   const chartElement = useRef(null)
-  const [hoverProvince, setHoverProvince] = useState('')
+  const [hoverProvince, setHoverProvince] = useState('ON')
+  const [vaccinationData, setVaccinationData] = useState({
+    Canada: 2231669,
+    Ontario: 820714,
+    'British Columbia': 298851,
+    Alberta: 266231,
+    Saskatchewan: 86879,
+    'Nova Scotia': 38676,
+    Manitoba: 84937,
+    'New Brunswick': 33741,
+    'Newfoundland and Labrador': 24757,
+    'Prince Edward Island': 13281,
+    'Northwest Territories': 19775,
+    Nunavut: 13911,
+    Quebec: 510479,
+    Yukon: 19437,
+  })
 
   useEffect(() => {
     const chart = am4core.create('map-canada-vaccines', am4maps.MapChart)
@@ -127,34 +143,31 @@ export default function MapCanadaVaccines() {
       currentSeries = regionalSeries.CA.series
 
       // Process data
-      am4core.array.each(
-        [
-          { province: 'BC', vaccinations: 10000 },
-          { province: 'ON', vaccinations: 100000 },
-        ],
-        (data) => {
-          if (!regionalSeries[data.province]) {
-            const provincePolygon = polygonSeries.getPolygonById(
-              `CA-${data.province}`
-            )
+      for (const [province, vaccinations] of Object.entries(vaccinationData)) {
+        if (province === 'Canada') continue
 
-            if (provincePolygon) {
-              regionalSeries[data.province] = {
-                target: data.province,
-                name: provincePolygon.dataItem.dataContext.name,
-                lat: provincePolygon.visualLatitude,
-                long: provincePolygon.visualLongitude,
-                vaccinations: data.vaccinations,
-                markerData: [],
-              }
+        const provinceCode = provinceNameToCode[province]
+        if (!regionalSeries[provinceCode]) {
+          const provincePolygon = polygonSeries.getPolygonById(
+            `CA-${provinceCode}`
+          )
 
-              regionalSeries.CA.markerData.push(regionalSeries[data.province])
+          if (provincePolygon) {
+            regionalSeries[provinceCode] = {
+              target: provinceCode,
+              name: provincePolygon.dataItem.dataContext.name,
+              lat: provincePolygon.visualLatitude,
+              long: provincePolygon.visualLongitude,
+              vaccinations,
+              markerData: [],
             }
-          } else {
-            return
+
+            regionalSeries.CA.markerData.push(regionalSeries[provinceCode])
           }
+        } else {
+          return
         }
-      )
+      }
 
       regionalSeries.CA.series.data = regionalSeries.CA.markerData
     }
@@ -162,7 +175,7 @@ export default function MapCanadaVaccines() {
     chart.events.on('ready', setupData)
 
     polygonSeries.tooltip.label.adapter.add('textOutput', (text, target) => {
-      setHoverProvince(provinceNameToCode[text])
+      setHoverProvince(provinceNameToCode[text] || 'ON')
       return text
     })
 
@@ -186,36 +199,20 @@ export default function MapCanadaVaccines() {
           Cumulative Number of Doses Administered
         </h2>
 
-        <div>
-          <h3 className="font-bold">
-            Total Doses Administered in {provinceCodetoName[hoverProvince]}:
+        <div className="w-full bg-brand-teal-dark text-white p-8 text-2xl rounded-lg">
+          <p className="text-4xl font-extrabold">
+            {vaccinationData[provinceCodetoName[hoverProvince]]}
+          </p>
+          <h3 className="font-bold text-sm">
+            Total Doses Administered in {provinceCodetoName[hoverProvince]}
           </h3>
-          <p>300</p>
         </div>
 
-        <div>
-          <h3 className="font-bold">Total Doses Administered in Canada:</h3>
-          <p>300</p>
-        </div>
-
-        <div>
-          <h3 className="font-bold">Total Doses Administered Worldwide:</h3>
-          <p>300</p>
-        </div>
-
-        <div>
-          <h3 className="font-bold">Vaccine Type/Name Distribution:</h3>
-          <p>300</p>
-        </div>
-
-        <div>
-          <h3 className="font-bold">Phasing Strategy:</h3>
-          <p>300</p>
-        </div>
-
-        <div>
-          <h3 className="font-bold">Last Updated:</h3>
-          <p>300</p>
+        <div className="w-full bg-brand-teal-dark text-white p-8 text-2xl rounded-lg">
+          <p className="text-4xl font-extrabold">{vaccinationData.Canada}</p>
+          <h3 className="font-bold text-sm">
+            Total Doses Administered in Canada
+          </h3>
         </div>
       </div>
     </div>

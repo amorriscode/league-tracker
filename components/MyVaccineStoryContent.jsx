@@ -15,7 +15,7 @@ const stories = [
   {
     author: 'Hannah',
     city: 'Toronto',
-    authorTitle: 'Entreprenuer',
+    authorTitle: 'Entrepreneur',
     image: 'hannah.png',
     message:
       'I’ve been waiting to get together with my in-laws since the pandemic began. We’re all vaccinated now and we’re reuniting again. Life is back to normal!',

@@ -1,18 +1,12 @@
 import withLayout from '../components/withLayout'
 import NeedToKnow from '../components/NeedToKnow'
-import MapCanadaVaccines from '../components/MapCanadaVaccines'
-import QuizOption from '../components/QuizOption'
+import Survey from '../components/Survey'
 import StepsCard from '../components/StepsCard'
-// <MapCanadaVaccines />
-// <div className="w-1/2 mx-auto space-y-4">
-//   {[1, 2, 3, 4].map((i) => (
-//     <QuizOption key={i} option={i} />
-//   ))}
-// </div>
 
 function Home() {
   return (
-    <main>
+    <main className="space-y-8">
+      <Survey />
       <NeedToKnow />
       <StepsCard />
     </main>
