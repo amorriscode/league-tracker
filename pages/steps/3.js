@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import withLayout from '../../components/withLayout'
 import Person from '../../public/person.svg'
 import Button from '../../components/Button'
-import FAQ from "../../components/FAQ"
+import FAQ from '../../components/FAQ'
 
 function Step1() {
   const router = useRouter()
@@ -11,7 +11,7 @@ function Step1() {
   return (
     <main>
       <h1 className="uppercase font-bold text-brand-blurple text-3xl mb-2">
-        Step 1
+        Step 3
       </h1>
 
       <div className="grid grid-cols-2 gap-8">
@@ -96,8 +96,8 @@ function Step1() {
                 your second dose.
               </p>
 
-              <Button handleOnClick={() => router.push('/steps/2')}>
-                Go to STEP 2
+              <Button handleOnClick={() => router.push('/steps/4')}>
+                Go to STEP 4
               </Button>
             </div>
           </div>
